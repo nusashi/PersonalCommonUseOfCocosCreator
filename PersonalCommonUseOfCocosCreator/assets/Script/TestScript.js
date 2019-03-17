@@ -12,6 +12,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        label: cc.Label
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -34,8 +35,12 @@ cc.Class({
     // onLoad () {},
 
     start () {
-
+        this.node.on(cc.Node.EventType.TOUCH_START, function(){this.testFunc();}.bind(this));
     },
 
+    testFunc () {
+        cc.log("test");
+        cc.log("this.label",this.label);
+    }
     // update (dt) {},
 });
